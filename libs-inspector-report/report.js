@@ -51,7 +51,7 @@ function insertTableRow(table, dependencyName, dependencyData, index) {
     if (!dependencyData.description) {
         row.classList.add('table-danger');
 
-        cell3.setAttribute('colspan', '6')
+        cell3.setAttribute('colspan', '7')
         cell3.innerHTML = 'Could not get information for this dependency from npm registry';
 
     } else {
@@ -60,13 +60,20 @@ function insertTableRow(table, dependencyName, dependencyData, index) {
         const cell6 = row.insertCell(5);
         const cell7 = row.insertCell(6);
         const cell8 = row.insertCell(7);
+        const cell9 = row.insertCell(8);
+
+        cell4.classList.add('d-none', 'd-lg-table-cell');
+        cell5.classList.add('d-none', 'd-lg-table-cell');
+        cell6.classList.add('d-none', 'd-lg-table-cell');
+        cell7.classList.add('d-none', 'd-lg-table-cell');
 
         cell3.innerHTML = dependencyData.description;
         cell4.innerHTML = dependencyData.usedVersion;
         cell5.innerHTML = dependencyData.latestVersion;
         cell6.innerHTML = getDependenciesAmount(dependencyData.dependencies);
         cell7.innerHTML = getDependenciesAmount(dependencyData.devDependencies);
-        cell8.innerHTML = `<a href="${dependencyData.links.npm}"><i class="bi bi-box" style="color: cornflowerblue; cursor: pointer"></i></a>`;
+        cell8.innerHTML = `<a href="${dependencyData.links.npm}" target="_blank"><i class="bi bi-box" style="color: cornflowerblue; cursor: pointer"></i></a>`;
+        cell9.innerHTML = `<a href="${dependencyData.links.repository}" target="_blank"><i class="bi bi-github" style="color: cornflowerblue; cursor: pointer"></i></a>`;
     }
 }
 

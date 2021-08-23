@@ -10,43 +10,77 @@ body {
     background-color: #fbfbfb;
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .container {
-    overflow: auto;
+    overflow-x: auto;
+    background-color: white;
+    padding: 20px;
+    margin: 10px auto;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    border-radius: 10px;
 }
 
 .report-header {
-    margin: 20px 0 30px;
+    margin: 20px 0 15px;
     font-family: Inter, serif;
     text-align: center;
 }
 
-.report-header .main-title {
+.report-header h1.main-title {
     margin-bottom: 20px;
+    text-transform: capitalize;
+}
+
+.report-header h2 {
+    padding: 0 20px;
 }
 
 #project-title {
-    color: red;
+    color: #187bf9cc;
 }
 
 #dependencies-table {
     margin-bottom: 40px;
 }
 
+table tr {
+    vertical-align: middle;
+}
+
+table tr.table-danger {
+    background-color: #f8d7da94 !important;
+}
+
+/* Align header */
+
 table tr:not(.table-danger) th:nth-child(4),
 table tr:not(.table-danger) th:nth-child(5),
 table tr:not(.table-danger) th:nth-child(6),
 table tr:not(.table-danger) th:nth-child(7),
-table tr:not(.table-danger) th:nth-child(8) {
+table tr:not(.table-danger) th:nth-child(8),
+table tr:not(.table-danger) th:nth-child(9) {
     text-align: center;
 }
+
+/* Align content */
 
 table tr:not(.table-danger) td:nth-child(4),
 table tr:not(.table-danger) td:nth-child(5),
 table tr:not(.table-danger) td:nth-child(6),
 table tr:not(.table-danger) td:nth-child(7),
-table tr:not(.table-danger) td:nth-child(8){
+table tr:not(.table-danger) td:nth-child(8),
+table tr:not(.table-danger) td:nth-child(9){
     text-align: center;
-    vertical-align: middle;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #959696;
 }

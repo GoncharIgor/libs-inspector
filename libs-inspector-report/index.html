@@ -9,12 +9,13 @@
     <link rel="stylesheet" href="index.css">
 </head>
 
+<header class="report-header">
+    <h1 class="main-title">Libs inspector report</h1>
+    <h2>The list of all dependencies, used in your project: <span id="project-title"></span></h2>
+</header>
 
 <div class="container">
-    <header class="report-header">
-        <h1 class="main-title">Libs inspector report</h1>
-        <h2>All the dependencies info, used in your project: <span id="project-title"></span></h2>
-    </header>
+
 
     <main>
         <table id="dependencies-table" class="table table-hover caption-top">
@@ -23,16 +24,19 @@
             <tr>
                 <th scope="col" style="width: 3%;">#</th>
                 <th scope="col" style="width: 15%;">Name</th>
-                <th scope="col" style="width: 45%;">Description</th>
-                <th scope="col" style="width: 10%;">Version in project</th>
-                <th scope="col" style="width: 10%;">Latest version in npm</th>
-                <th scope="col" style="width: 7.5%;" data-bs-toggle="tooltip" data-bs-placement="top"
+                <th scope="col" style="width: 43%;">Description</th>
+                <th scope="col" class="d-none d-lg-table-cell" style="width: 10%;">Version in project</th>
+                <th scope="col" class="d-none d-lg-table-cell" style="width: 10%;">Latest version in npm</th>
+                <th scope="col" class="d-none d-lg-table-cell" style="width: 7.5%;" data-bs-toggle="tooltip"
+                    data-bs-placement="top"
                     title="Amount of dependencies, used by this lib">deps
                 </th>
-                <th scope="col" style="width: 7.5%;" data-bs-toggle="tooltip" data-bs-placement="top"
+                <th scope="col" class="d-none d-lg-table-cell" style="width: 7.5%;" data-bs-toggle="tooltip"
+                    data-bs-placement="top"
                     title="Amount of dev dependencies, used by this lib">dev deps
                 </th>
                 <th style="width: 2%;">npm</th>
+                <th style="width: 2%;">git</th>
             </tr>
             </thead>
             <tbody>
@@ -45,16 +49,19 @@
             <tr>
                 <th scope="col" style="width: 3%;">#</th>
                 <th scope="col" style="width: 15%;">Name</th>
-                <th scope="col" style="width: 45%;">Description</th>
-                <th scope="col" style="width: 10%;">Version in project</th>
-                <th scope="col" style="width: 10%;">Latest version in npm</th>
-                <th scope="col" style="width: 7.5%;" data-bs-toggle="tooltip" data-bs-placement="top"
+                <th scope="col" style="width: 43%;">Description</th>
+                <th scope="col" class="d-none d-lg-table-cell" style="width: 10%;">Version in project</th>
+                <th scope="col" class="d-none d-lg-table-cell" style="width: 10%;">Latest version in npm</th>
+                <th scope="col" class="d-none d-lg-table-cell" style="width: 7.5%;" data-bs-toggle="tooltip"
+                    data-bs-placement="top"
                     title="Amount of dependencies, used by this lib">deps
                 </th>
-                <th scope="col" style="width: 7.5%;" data-bs-toggle="tooltip" data-bs-placement="top"
+                <th scope="col" class="d-none d-lg-table-cell" style="width: 7.5%;" data-bs-toggle="tooltip"
+                    data-bs-placement="top"
                     title="Amount of dev dependencies, used by this lib">dev deps
                 </th>
                 <th style="width: 2%;">npm</th>
+                <th style="width: 2%;">git</th>
             </tr>
             </thead>
             <tbody>
@@ -62,7 +69,9 @@
         </table>
     </main>
 
-    <footer></footer>
+    <!--<footer class="fixed-bottom py-3 border-top">
+        <p>This report designed and developer by Igor Gonchar</p>
+    </footer>-->
 </div>
 
 </body>

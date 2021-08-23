@@ -123,3 +123,6 @@ module.exports = {
     const fullReportData = await getInfoPerEachDependencyInPackageJson(dep, devDep);
     writeDependenciesDataIntoLocalJsonFile(fullReportData);
 })();*/
+
+// debug package:
+// curl https://api.npms.io/v2/package/axios
