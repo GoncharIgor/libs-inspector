@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Libs Reporter</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+
+<div class="container">
+    <header class="report-header">
+        <h1 class="main-title">Libs inspector report</h1>
+        <h2>All the dependencies info, used in your project: <span id="project-title"></span></h2>
+    </header>
+
+    <main>
+        <table id="dependencies-table" class="table table-hover caption-top">
+            <caption>dependencies</caption>
+            <thead>
+            <tr>
+                <th scope="col" style="width: 3%;">#</th>
+                <th scope="col" style="width: 15%;">Name</th>
+                <th scope="col" style="width: 45%;">Description</th>
+                <th scope="col" style="width: 10%;">Version in project</th>
+                <th scope="col" style="width: 10%;">Latest version in npm</th>
+                <th scope="col" style="width: 7.5%;" data-bs-toggle="tooltip" data-bs-placement="top"
+                    title="Amount of dependencies, used by this lib">deps
+                </th>
+                <th scope="col" style="width: 7.5%;" data-bs-toggle="tooltip" data-bs-placement="top"
+                    title="Amount of dev dependencies, used by this lib">dev deps
+                </th>
+                <th style="width: 2%;">npm</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <table id="dev-dependencies-table" class="table table-hover caption-top">
+            <caption>devDependencies</caption>
+            <thead>
+            <tr>
+                <th scope="col" style="width: 3%;">#</th>
+                <th scope="col" style="width: 15%;">Name</th>
+                <th scope="col" style="width: 45%;">Description</th>
+                <th scope="col" style="width: 10%;">Version in project</th>
+                <th scope="col" style="width: 10%;">Latest version in npm</th>
+                <th scope="col" style="width: 7.5%;" data-bs-toggle="tooltip" data-bs-placement="top"
+                    title="Amount of dependencies, used by this lib">deps
+                </th>
+                <th scope="col" style="width: 7.5%;" data-bs-toggle="tooltip" data-bs-placement="top"
+                    title="Amount of dev dependencies, used by this lib">dev deps
+                </th>
+                <th style="width: 2%;">npm</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </main>
+
+    <footer></footer>
+</div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+<script src="report.js"></script>
+</html>
