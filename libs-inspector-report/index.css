@@ -87,6 +87,10 @@ table tr:not(.table-danger) td:nth-child(9){
     text-align: center;
 }
 
+.empty-state {
+    text-align: center;
+}
+
 
 /*   FOOTER   */
 

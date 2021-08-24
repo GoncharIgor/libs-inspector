@@ -5,27 +5,34 @@ window.addEventListener("DOMContentLoaded", async () => {
     const tooltipList = tooltipTriggerList.map((tooltipTriggerEl) => {
         return new bootstrap.Tooltip(tooltipTriggerEl)
     })
+    const depTable = document.getElementById('dependencies-table');
+    const devDepTable = document.getElementById('dev-dependencies-table');
 
     const response = await fetch(localJsonFile);
     const dataFile = await response.json();
-    const dependenciesList = Object.entries(dataFile.dependencies);
-    const devDependenciesList = Object.entries(dataFile.devDependencies);
 
     // set Project title
     let projectTitle = document.getElementById('project-title');
     projectTitle.innerText = dataFile.projectName;
 
-    // fill dependencies table
-    const depTable = document.getElementById('dependencies-table');
+    let dependenciesList = [];
+    let devDependenciesList = [];
 
+    dataFile.dependencies ?
+        dependenciesList = Object.entries(dataFile.dependencies)
+        : createEmptyStateForTable(depTable, 'No dependencies found in the package.json');
+
+    dataFile.devDependencies ?
+        devDependenciesList = Object.entries(dataFile.devDependencies)
+        : createEmptyStateForTable(devDepTable, 'No devDependencies found in the package.json');
+
+    // fill dependencies table
     dependenciesList.forEach((dependency, index) => {
         [dependencyName, dependencyData] = dependency;
         insertTableRow(depTable, dependencyName, dependencyData, index);
     })
 
     // fill devDependencies table
-    const devDepTable = document.getElementById('dev-dependencies-table');
-
     devDependenciesList.forEach((devDependency, index) => {
         [devDependencyName, devDependencyData] = devDependency;
         insertTableRow(devDepTable, devDependencyName, devDependencyData, index);
@@ -76,6 +83,14 @@ function insertTableRow(table, dependencyName, dependencyData, index) {
     }
 }
 
+function createEmptyStateForTable(table, emptyStateText) {
+    const emptyStateElement = document.createElement('div');
+    emptyStateElement.classList.add('empty-state');
+    emptyStateElement.innerHTML = emptyStateText;
+    table.parentNode.appendChild(emptyStateElement);
+    table.parentNode.removeChild(table);
+}
+
 function getDependenciesAmount(dependencies) {
     if (!dependencies) {
         return '0'
@@ -83,6 +98,3 @@ function getDependenciesAmount(dependencies) {
 
     return Object.keys(dependencies).length.toString();
 }
-
-// insert next sibling
-// menu.insertAdjacentElement('beforebegin', h2);
