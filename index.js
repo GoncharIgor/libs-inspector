@@ -6,8 +6,10 @@ const fse = require('fs-extra');
 async function getPackageInfoInGlobalRegistry(packageName) {
     let response;
 
+    const formattedPackageName = packageName.replace(/\//g, '%2F');
+
     try {
-        response = await axios.get(`https://api.npms.io/v2/package/${packageName}`);
+        response = await axios.get(`https://api.npms.io/v2/package/${formattedPackageName}`);
     } catch (err) {
         console.log(`Could not find this repo "${packageName}" in global npm registry`);
         console.log('\x1b[31m%s\x1b[0m', `${err?.response.status} - ${err?.response.statusText}`);
@@ -123,6 +125,3 @@ module.exports = {
     const fullReportData = await getInfoPerEachDependencyInPackageJson(dep, devDep);
     writeDependenciesDataIntoLocalJsonFile(fullReportData);
 })();*/
-
-// debug package:
-// curl https://api.npms.io/v2/package/axios
