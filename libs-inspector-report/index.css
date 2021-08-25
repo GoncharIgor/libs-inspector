@@ -83,7 +83,7 @@ table tr:not(.table-danger) td:nth-child(5),
 table tr:not(.table-danger) td:nth-child(6),
 table tr:not(.table-danger) td:nth-child(7),
 table tr:not(.table-danger) td:nth-child(8),
-table tr:not(.table-danger) td:nth-child(9){
+table tr:not(.table-danger) td:nth-child(9) {
     text-align: center;
 }
 
@@ -100,6 +100,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     color: #959696;
     width: 100%;
     height: 3rem;
@@ -113,4 +114,24 @@ footer a,
 footer a:visited {
     text-decoration: none;
     color: #187bf9cc;
+}
+
+@media (min-width: 512px) {
+    .container-xxl {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media (min-width: 980px) {
+    .container-xxl {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .container-xxl {
+        max-width: 94%;
+    }
 }
