@@ -41,6 +41,13 @@ e.g:
 - If the dependency info couldn't be got from `npms.io`, then the row is highlighted in red
 
 
+## Next features to come
+- Highlight the packages, whose major versions should be updated
+- collapsible tables for better UX
+
+
 ## License
 
-MIT (http://www.opensource.org/licenses/mit-license.php)
+>You can check out the full license [here](https://github.com/GoncharIgor/libs-inspector/blob/master/LICENSE)
+
+This project is licensed under the terms of the **MIT** license.
