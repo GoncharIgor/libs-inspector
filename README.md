@@ -10,8 +10,8 @@ This is a UI representation of all dependencies in your package.json with their 
 
 ## Demo
 
-Here is the example of generated libs-inspector report:
-![alt text](example/demo.jpg "Libs Inspector report demo")
+Here is the running demo of generated libs-inspector report:
+[![alt text](example/demo.jpg "Libs Inspector report demo")](https://goncharigor.github.io/libs-inspector/)
 
 ## Install
 
