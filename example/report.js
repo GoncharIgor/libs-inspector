@@ -1,4 +1,4 @@
-const localJsonFile = "./data.json";
+const localJsonFile = "./example/data.json";
 
 window.addEventListener("DOMContentLoaded", async () => {
     const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))

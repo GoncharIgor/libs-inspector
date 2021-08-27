@@ -67,23 +67,24 @@ async function getInfoFromNpmsPerDependency(dependencies) {
     return collectedDependencies;
 }
 
-function writeDependenciesDataIntoLocalJsonFile(data, projectName) {
+function writeDependenciesDataIntoLibsLocalJsonFile(data, projectName) {
     const pathOfCurrentModuleBinInUserRepo = process.argv[1];
-    const pathToLocalDataJson = path.join(pathOfCurrentModuleBinInUserRepo, '../../libs-inspector/libs-inspector-report/data.json')
+    const pathToLocalLibsDataJson = path.join(pathOfCurrentModuleBinInUserRepo, '../../../../libs-inspector/libs-inspector-report/data.json');
 
-    if (checkFileExists(pathToLocalDataJson)) {
+    if (checkFileExists(pathToLocalLibsDataJson)) {
         console.log('Removing the previous version of data.json');
-        fs.unlinkSync(pathToLocalDataJson);
+        fs.unlinkSync(pathToLocalLibsDataJson);
     }
 
     console.log('Creating data.json with all dependencies info');
-    fs.writeFileSync(pathToLocalDataJson, JSON.stringify({projectName, ...data}), 'utf8');
+    fs.writeFileSync(pathToLocalLibsDataJson, JSON.stringify({projectName, ...data}), 'utf8');
 }
 
 function copyReportFolderToUserRepo() {
     const pathOfCurrentModuleBinInUserRepo = process.argv[1];
-    const pathToUsersRepo = path.join(pathOfCurrentModuleBinInUserRepo, '../../../libs-inspector-report')
-    const pathToLocallyGeneratedReport = path.join(__dirname, './libs-inspector-report');
+    const pathToUsersRepo = path.join(pathOfCurrentModuleBinInUserRepo, '../../../libs-inspector-report');
+
+    const pathToLocallyGeneratedReportInLib = path.join(__dirname, '../libs-inspector-report');
 
     if (!checkFileExists(pathToUsersRepo)) {
         fs.mkdirSync(pathToUsersRepo, (err) => {
@@ -95,7 +96,7 @@ function copyReportFolderToUserRepo() {
 
     console.log('Copying generated report to user repo');
     // { overwrite: true } - to replace existing folder or file with same name
-    fse.copySync(pathToLocallyGeneratedReport, pathToUsersRepo, {overwrite: true});
+    fse.copySync(pathToLocallyGeneratedReportInLib, pathToUsersRepo, {overwrite: true});
 }
 
 function checkFileExists(filePath) {
@@ -114,6 +115,6 @@ function checkFileExists(filePath) {
 module.exports = {
     getPackageJsonInfoFromUserRepo,
     generateReportData,
-    writeDependenciesDataIntoLocalJsonFile,
+    writeDependenciesDataIntoLibsLocalJsonFile,
     copyReportFolderToUserRepo
 };

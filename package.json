@@ -1,10 +1,10 @@
 {
   "name": "libs-inspector",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A UI representation of all dependencies in your package.json with their description",
-  "main": "index.js",
+  "main": "src/index.js",
   "bin": {
-    "libs-inspector": "cli.js"
+    "libs-inspector": "src/cli.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
