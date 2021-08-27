@@ -1,3 +1,5 @@
 # Project exclude paths
 /node_modules/
 .idea
+/libs-inspector-report/data.json
+

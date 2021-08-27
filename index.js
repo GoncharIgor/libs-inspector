@@ -36,7 +36,6 @@ async function getPackageInfoInGlobalRegistry(packageName) {
 function getPackageJsonInfoFromUserRepo() {
     const pathOfCurrentModule = process.argv[1];
     const pathToPackageJson = path.join(pathOfCurrentModule, '../../../package.json')
-    // const pathToPackageJson = path.join(__dirname, './package.json');
     const packageJsonFile = require(pathToPackageJson);
 
     const {dependencies, devDependencies, name} = packageJsonFile;
@@ -71,7 +70,6 @@ async function getInfoFromNpmsPerDependency(dependencies) {
 function writeDependenciesDataIntoLocalJsonFile(data, projectName) {
     const pathOfCurrentModuleBinInUserRepo = process.argv[1];
     const pathToLocalDataJson = path.join(pathOfCurrentModuleBinInUserRepo, '../../libs-inspector/libs-inspector-report/data.json')
-    // const pathToDataJson = path.join(__dirname, './report/data.json');
 
     if (checkFileExists(pathToLocalDataJson)) {
         console.log('Removing the previous version of data.json');
@@ -119,9 +117,3 @@ module.exports = {
     writeDependenciesDataIntoLocalJsonFile,
     copyReportFolderToUserRepo
 };
-
-/*(async () => {
-    const [dep, devDep] = await getPackageJsonInfoFromUserRepo();
-    const fullReportData = await getInfoPerEachDependencyInPackageJson(dep, devDep);
-    writeDependenciesDataIntoLocalJsonFile(fullReportData);
-})();*/
