@@ -3,7 +3,9 @@
   "version": "0.0.4",
   "description": "A UI representation of all dependencies in your package.json with their description",
   "main": "index.js",
-  "bin": "cli.js",
+  "bin": {
+    "libs-inspector": "cli.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,9 +13,24 @@
     "axios": "^0.21.1",
     "fs-extra": "^10.0.0"
   },
-  "author": {
-    "name": "Igor Gonchar",
-    "url": "https://igorgo.nl"
+  "author": "Igor Gonchar (https://igorgo.nl)",
+  "license": "MIT",
+  "directories": {
+    "example": "example"
   },
-  "license": "MIT"
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GoncharIgor/libs-inspector.git"
+  },
+  "keywords": [
+    "libs",
+    "report",
+    "dependencies",
+    "libs-reporter"
+  ],
+  "bugs": {
+    "url": "https://github.com/GoncharIgor/libs-inspector/issues"
+  },
+  "homepage": "https://github.com/GoncharIgor/libs-inspector#readme"
 }
