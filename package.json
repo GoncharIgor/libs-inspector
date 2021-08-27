@@ -1,7 +1,6 @@
 {
   "name": "libs-inspector",
   "version": "0.0.4",
-  "private": true,
   "description": "A UI representation of all dependencies in your package.json with their description",
   "main": "index.js",
   "bin": "cli.js",
