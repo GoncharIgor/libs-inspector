@@ -38,12 +38,14 @@ function getPackageJsonInfoFromUserRepo() {
     const pathToPackageJson = path.join(pathOfCurrentModule, '../../../package.json')
     const packageJsonFile = require(pathToPackageJson);
 
+    console.log('Getting dependencies list from your package.json');
     const {dependencies, devDependencies, name} = packageJsonFile;
 
     return [dependencies, devDependencies, name];
 }
 
 async function generateReportData(dependencies, devDependencies) {
+    console.log('Gathering data from npmjs registry for your dependencies...');
     let fullReportData = {};
 
     if (dependencies) {
