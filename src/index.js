@@ -69,7 +69,7 @@ async function getInfoFromNpmsPerDependency(dependencies) {
 
 function writeDependenciesDataIntoLibsLocalJsonFile(data, projectName) {
     const pathOfCurrentModuleBinInUserRepo = process.argv[1];
-    const pathToLocalLibsDataJson = path.join(pathOfCurrentModuleBinInUserRepo, '../../../../libs-inspector/libs-inspector-report/data.json');
+    const pathToLocalLibsDataJson = path.join(pathOfCurrentModuleBinInUserRepo, '../../libs-inspector/libs-inspector-report/data.json');
 
     if (checkFileExists(pathToLocalLibsDataJson)) {
         console.log('Removing the previous version of data.json');

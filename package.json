@@ -1,6 +1,6 @@
 {
   "name": "libs-inspector",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A UI representation of all dependencies in your package.json with their description",
   "main": "src/index.js",
   "bin": {
