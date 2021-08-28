@@ -1,6 +1,6 @@
 # libs-inspector
 
-[![GitHub Stars](https://img.shields.io/github/stars/GoncharIgor/libs-inspector.svg)](https://github.com/GoncharIgor/libs-inspector/stargazers)
+<!--- [![GitHub Stars](https://img.shields.io/github/stars/GoncharIgor/libs-inspector.svg)](https://github.com/GoncharIgor/libs-inspector/stargazers) --->
 [![Current Version](https://img.shields.io/badge/version-0.0.7-green.svg)](https://github.com/GoncharIgor/libs-inspector)
 ![MIT license](https://img.shields.io/github/license/mashape/apistatus.svg)
 
