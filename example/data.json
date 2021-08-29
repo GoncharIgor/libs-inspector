@@ -389,9 +389,6 @@
         }
       }
     },
-    "test-local-lib": {
-      "usedVersion": "file:../../../../my/libs-inspector"
-    },
     "lint-staged": {
       "usedVersion": "^10.5.4",
       "name": "lint-staged",
@@ -598,6 +595,9 @@
           "maintenance": 0.9310512162395781
         }
       }
+    },
+    "test-local-lib": {
+      "usedVersion": "file:../../../../company-name/test-local-lib"
     },
     "pretty-quick": {
       "usedVersion": "^3.1.0",

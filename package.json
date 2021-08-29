@@ -1,7 +1,7 @@
 {
   "name": "libs-inspector",
-  "version": "0.0.7",
-  "description": "A UI representation of all dependencies in your package.json with their description",
+  "version": "0.0.8",
+  "description": "A UI report of all dependencies in your package.json with their description",
   "main": "src/index.js",
   "bin": {
     "libs-inspector": "src/cli.js"

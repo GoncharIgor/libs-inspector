@@ -1,4 +1,5 @@
 const localJsonFile = "./example/data.json";
+const semverRegExp = /^([\^~])?(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$/;
 
 window.addEventListener("DOMContentLoaded", async () => {
     const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
@@ -76,6 +77,13 @@ function insertTableRow(table, dependencyName, dependencyData, index) {
         cell3.innerHTML = dependencyData.description;
         cell4.innerHTML = dependencyData.usedVersion;
         cell5.innerHTML = dependencyData.latestVersion;
+
+        const isMajorVersionOutdated = compareSemverVersions(dependencyData.usedVersion, dependencyData.latestVersion);
+        if (isMajorVersionOutdated) {
+            cell4.classList.add('table-warning');
+            cell5.classList.add('table-success');
+        }
+
         cell6.innerHTML = getDependenciesAmount(dependencyData.dependencies);
         cell7.innerHTML = getDependenciesAmount(dependencyData.devDependencies);
         cell8.innerHTML = `<a href="${dependencyData.links.npm}" target="_blank"><i class="bi bi-box" style="color: cornflowerblue; cursor: pointer"></i></a>`;
@@ -97,4 +105,22 @@ function getDependenciesAmount(dependencies) {
     }
 
     return Object.keys(dependencies).length.toString();
+}
+
+function compareSemverVersions(userPackage, globalPackage) {
+    const isUserPackageValidSemver = checkValidityOfSemver(userPackage);
+    const isGlobalPackageValidSemver = checkValidityOfSemver(globalPackage);
+
+    if (!isUserPackageValidSemver || !isGlobalPackageValidSemver) {
+        return null;
+    }
+
+    const userPackageMajorVersion = userPackage.split('.')[0].replace(/[^\d.-]/g, '');
+    const globalPackageMajorVersion = globalPackage.split('.')[0].replace(/[^\d.-]/g, '');
+
+    return +userPackageMajorVersion < +globalPackageMajorVersion;
+}
+
+function checkValidityOfSemver(version) {
+    return semverRegExp.test(version);
 }

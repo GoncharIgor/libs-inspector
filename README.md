@@ -1,12 +1,12 @@
 # libs-inspector
 
 <!--- [![GitHub Stars](https://img.shields.io/github/stars/GoncharIgor/libs-inspector.svg)](https://github.com/GoncharIgor/libs-inspector/stargazers) --->
-[![Current Version](https://img.shields.io/badge/version-0.0.7-green.svg)](https://github.com/GoncharIgor/libs-inspector)
+[![Current Version](https://img.shields.io/badge/version-0.0.8-green.svg)](https://github.com/GoncharIgor/libs-inspector)
 ![MIT license](https://img.shields.io/github/license/mashape/apistatus.svg)
 
 ## What is it
 
-This is a UI representation of all dependencies in your package.json with their description
+This is a UI report of all dependencies in your package.json with their description
 
 ## Demo
 
@@ -39,10 +39,10 @@ e.g:
 - If your project doesn't have devDependencies, then it will be written in empty block
 - Information for each dependency is being retrieved from: https://npms.io
 - If the dependency info couldn't be got from `npms.io`, then the row is highlighted in red
+- When package version can be updated to new major version, its cell is highlighted
 
 
 ## Next features to come
-- Highlight the packages, whose major versions should be updated
 - collapsible tables for better UX
 
 
