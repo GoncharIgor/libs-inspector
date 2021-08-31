@@ -1,7 +1,7 @@
 {
   "name": "libs-inspector",
-  "version": "0.0.8",
-  "description": "A UI report of all dependencies in your package.json with their description",
+  "version": "0.0.9",
+  "description": "A UI report of all dependencies in your package.json with their description and suggestions for upgrade",
   "main": "src/index.js",
   "bin": {
     "libs-inspector": "src/cli.js"
@@ -24,10 +24,18 @@
     "url": "git+https://github.com/GoncharIgor/libs-inspector.git"
   },
   "keywords": [
+    "libs-inspector",
+    "inspector-libs",
+    "libs-reporter",
+    "reporter-libs",
+    "libs inspector",
+    "libs reporter",
     "libs",
+    "inspector",
     "report",
+    "reporter",
     "dependencies",
-    "libs-reporter"
+    "deps"
   ],
   "bugs": {
     "url": "https://github.com/GoncharIgor/libs-inspector/issues"

@@ -44,17 +44,13 @@ h2 #project-title {
 
 /*   MAIN CONTENT   */
 
-main.container {
-    overflow-x: auto;
-    padding: 0;
-}
-
 .table-wrapper {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 15px;
     box-shadow: 4px 5px 8px -4px rgba(0,0,0,0.86);
+    overflow-x: auto;
 }
 
 #dependencies-table {

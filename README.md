@@ -1,12 +1,12 @@
 # libs-inspector
 
-<!--- [![GitHub Stars](https://img.shields.io/github/stars/GoncharIgor/libs-inspector.svg)](https://github.com/GoncharIgor/libs-inspector/stargazers) --->
-[![Current Version](https://img.shields.io/badge/version-0.0.8-green.svg)](https://github.com/GoncharIgor/libs-inspector)
+[![Current Version](https://img.shields.io/badge/version-0.0.9-green.svg)](https://github.com/GoncharIgor/libs-inspector)
+[![GitHub Stars](https://img.shields.io/github/stars/GoncharIgor/libs-inspector.svg)](https://github.com/GoncharIgor/libs-inspector/stargazers)
 ![MIT license](https://img.shields.io/github/license/mashape/apistatus.svg)
 
 ## What is it
 
-This is a UI report of all dependencies in your package.json with their description
+This is a UI report of all dependencies in your package.json with their description and suggestions for upgrade
 
 ## Demo
 
@@ -21,18 +21,25 @@ npm install --save-dev libs-inspector
 
 ## Usage
 
-1. open your `package.json` file
-2. add new script with calling `libs-inspector` library
-e.g:
+1. open your project's root folder
+2. run in the terminal: `libs-inspector`
+3. a new folder will be generated in project's root: `libs-inspector-report`
+4. open it's `index.html`
+
+**Tips for automated usage:**
+1. add new npm script to your `package.json` file, that will call `libs-inspector` library. E.g:
 ```javascript
 "scripts": {
    "generate:lib-report": "libs-inspector"
 }
 ```
-3. run npm script:  
-   `npm run generate:lib-report`
-4. in project source root new folder will be generated: `libs-inspector-report`
-5. open it's `index.html`
+2. You can run this script whenever you want in your CI, but better - to add it to `postinstall` script. E.g:
+```javascript
+"scripts": {
+   "postinstall": "npm run generate:lib-report"
+}
+```
+Each time you setup a project and install dependencies, the report will be automatically generated
 
 ## Details of realisation
 - The report generates 2 tables: dependencies and devDependencies
@@ -44,6 +51,8 @@ e.g:
 
 ## Next features to come
 - collapsible tables for better UX
+- configuration file for excluding specific libs
+- vulnerabilities check
 
 
 ## License
