@@ -45,14 +45,15 @@ function getPackageJsonInfoFromUserRepo() {
 }
 
 async function generateReportData(dependencies, devDependencies) {
-    console.log('Gathering data from npmjs registry for your dependencies...');
     let fullReportData = {};
 
     if (dependencies) {
+        console.log(`Gathering data from npmjs registry for your ${Object.keys(dependencies).length} dependencies...`);
         fullReportData.dependencies = await getInfoFromNpmsPerDependency(dependencies);
     }
 
     if (devDependencies) {
+        console.log(`Gathering data from npmjs registry for your ${Object.keys(devDependencies).length} devDependencies...`);
         fullReportData.devDependencies = await getInfoFromNpmsPerDependency(devDependencies);
     }
 

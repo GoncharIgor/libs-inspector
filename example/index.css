@@ -7,8 +7,7 @@
 }
 
 body {
-    background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
     url('./assets/bg.webp');
     background-size: cover;
 }
@@ -49,12 +48,28 @@ h2 #project-title {
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 15px;
-    box-shadow: 4px 5px 8px -4px rgba(0,0,0,0.86);
+    box-shadow: 4px 5px 8px -4px rgba(0, 0, 0, 0.86);
     overflow-x: auto;
 }
 
-#dependencies-table {
+#dependencies-table,
+#dev-dependencies-table {
     margin-bottom: 15px;
+}
+
+table caption {
+    position: relative;
+    cursor: pointer;
+    width: fit-content;
+}
+
+table caption:hover {
+    color: black;
+}
+
+#dependencies-chevron.rotate-up::before,
+#dev-dependencies-chevron.rotate-up::before {
+    transform: rotate(180deg);
 }
 
 table tr {

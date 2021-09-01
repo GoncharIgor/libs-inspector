@@ -1,6 +1,6 @@
 # libs-inspector
 
-[![Current Version](https://img.shields.io/badge/version-0.0.9-green.svg)](https://github.com/GoncharIgor/libs-inspector)
+[![Current Version](https://img.shields.io/badge/version-0.0.10-green.svg)](https://github.com/GoncharIgor/libs-inspector)
 [![GitHub Stars](https://img.shields.io/github/stars/GoncharIgor/libs-inspector.svg)](https://github.com/GoncharIgor/libs-inspector/stargazers)
 ![MIT license](https://img.shields.io/github/license/mashape/apistatus.svg)
 
@@ -50,7 +50,6 @@ Each time you setup a project and install dependencies, the report will be autom
 
 
 ## Next features to come
-- collapsible tables for better UX
 - configuration file for excluding specific libs
 - vulnerabilities check
 

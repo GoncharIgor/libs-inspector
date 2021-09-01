@@ -19,10 +19,12 @@
             property="og:description"
             content="Libs Inspector - is a UI report of all dependencies in your package.json with their description and suggestions for upgrade"
     />
-    <meta property="og:image" content="https://github.com/GoncharIgor/libs-inspector/blob/master/example/demo.jpg?raw=true" />
-    <meta property="og:image:secure_url" content="https://github.com/GoncharIgor/libs-inspector/blob/master/example/demo.jpg?raw=true" />
-    <meta property="og:image:type" content="image/jpg" />
-    <meta property="og:image:alt" content="An image for Libs Inspector report demo" />
+    <meta property="og:image"
+          content="https://github.com/GoncharIgor/libs-inspector/blob/master/example/demo.jpg?raw=true"/>
+    <meta property="og:image:secure_url"
+          content="https://github.com/GoncharIgor/libs-inspector/blob/master/example/demo.jpg?raw=true"/>
+    <meta property="og:image:type" content="image/jpg"/>
+    <meta property="og:image:alt" content="An image for Libs Inspector report demo"/>
 
     <link rel="icon" type="image/x-icon" href="example/assets/favicon.ico"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -42,8 +44,11 @@
 
         <div class="table-wrapper">
             <table id="dependencies-table" class="table caption-top">
-                <caption>dependencies</caption>
-                <thead>
+                <caption id="dependencies-caption">dependencies
+                    <i id="dependencies-chevron" class="bi bi-chevron-down">
+                    </i>
+                </caption>
+                <thead id="table-head">
                 <tr class="table-primary table-header-row">
                     <th scope="col" style="width: 3%;">#</th>
                     <th scope="col" style="width: 15%;">Name</th>
@@ -68,9 +73,12 @@
         </div>
 
         <div class="table-wrapper">
-            <table id="dev-dependencies-table" class="table caption-top">
-                <caption>devDependencies</caption>
-                <thead>
+            <table id="dev-dependencies-table" class="table table-hover caption-top">
+                <caption id="dev-dependencies-caption">devDependencies
+                    <i id="dev-dependencies-chevron" class="bi bi-chevron-down">
+                    </i>
+                </caption>
+                <thead id="dev-table-head">
                 <tr class="table-primary table-header-row">
                     <th scope="col" style="width: 3%;">#</th>
                     <th scope="col" style="width: 15%;">Name</th>

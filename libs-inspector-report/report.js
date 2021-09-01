@@ -6,8 +6,39 @@ window.addEventListener("DOMContentLoaded", async () => {
     const tooltipList = tooltipTriggerList.map((tooltipTriggerEl) => {
         return new bootstrap.Tooltip(tooltipTriggerEl)
     })
+
+    // dependencies table elements
     const depTable = document.getElementById('dependencies-table');
+    const dependenciesCaption = document.getElementById('dependencies-caption');
+    const tabHead = document.getElementById('table-head');
+    const devDependenciesChevron = document.getElementById('dev-dependencies-chevron');
+
+    // devDependencies table elements
     const devDepTable = document.getElementById('dev-dependencies-table');
+    const devDependenciesCaption = document.getElementById('dev-dependencies-caption');
+    const devTabHead = document.getElementById('dev-table-head');
+    const dependenciesChevron = document.getElementById('dependencies-chevron');
+
+    let isTableShown = true;
+    let isDevTableShown = true;
+
+    dependenciesCaption.addEventListener('click', (e) => {
+        e.stopPropagation();
+        tabHead.style.display = isTableShown ? 'none' : 'block';
+        depTable.style.marginBottom = isTableShown ? '0' : '15px';
+
+        rotateChevron(dependenciesChevron, isTableShown);
+        isTableShown = !isTableShown;
+    })
+
+    devDependenciesCaption.addEventListener('click', (e) => {
+        e.stopPropagation();
+        devTabHead.style.display = isDevTableShown ? 'none' : 'block';
+        devDepTable.style.marginBottom = isDevTableShown ? '0' : '15px';
+
+        rotateChevron(devDependenciesChevron, isDevTableShown);
+        isDevTableShown = !isDevTableShown;
+    })
 
     const response = await fetch(localJsonFile);
     const dataFile = await response.json();
@@ -39,6 +70,14 @@ window.addEventListener("DOMContentLoaded", async () => {
         insertTableRow(devDepTable, devDependencyName, devDependencyData, index);
     })
 });
+
+function rotateChevron(tableChevron, isRotationApplied) {
+    if (isRotationApplied) {
+        tableChevron.classList.add('rotate-up');
+    } else {
+        tableChevron.classList.remove('rotate-up');
+    }
+}
 
 function insertTableRow(table, dependencyName, dependencyData, index) {
     let row;
