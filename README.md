@@ -1,8 +1,8 @@
 # libs-inspector
 
-[![Current Version](https://img.shields.io/badge/version-0.0.10-green.svg)](https://github.com/GoncharIgor/libs-inspector)
-[![GitHub Stars](https://img.shields.io/github/stars/GoncharIgor/libs-inspector.svg)](https://github.com/GoncharIgor/libs-inspector/stargazers)
-![MIT license](https://img.shields.io/github/license/mashape/apistatus.svg)
+[![Current Version](https://img.shields.io/github/package-json/v/GoncharIgor/libs-inspector?color=%2397c40f&logo=github)](https://github.com/GoncharIgor/libs-inspector)
+[![GitHub Stars](https://img.shields.io/github/stars/GoncharIgor/libs-inspector.svg?logo=github)](https://github.com/GoncharIgor/libs-inspector/stargazers)
+![MIT license](https://img.shields.io/github/license/GoncharIgor/libs-inspector)
 
 ## What is it
 
