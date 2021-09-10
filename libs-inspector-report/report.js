@@ -1,4 +1,3 @@
-const localJsonFile = "./data.json";
 const semverRegExp = /^([\^~])?(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$/;
 
 window.addEventListener("DOMContentLoaded", async () => {
@@ -40,8 +39,8 @@ window.addEventListener("DOMContentLoaded", async () => {
         isDevTableShown = !isDevTableShown;
     })
 
-    const response = await fetch(localJsonFile);
-    const dataFile = await response.json();
+    // data global var is loaded in .html before
+    const dataFile = window.data;
 
     // set Project title
     let projectTitle = document.getElementById('project-title');
@@ -96,7 +95,7 @@ function insertTableRow(table, dependencyName, dependencyData, index) {
     cell2.innerHTML = dependencyName;
 
     if (!dependencyData.description) {
-        row.classList.add('table-danger');
+        row.classList.add('table-warning');
 
         cell3.setAttribute('colspan', '7')
         cell3.innerHTML = '<i>Could not get information for this dependency from npm registry</i>';

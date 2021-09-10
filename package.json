@@ -1,6 +1,6 @@
 {
   "name": "libs-inspector",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A UI report of all dependencies in your package.json with their description and suggestions for upgrade",
   "main": "src/index.js",
   "bin": {
@@ -22,6 +22,10 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GoncharIgor/libs-inspector.git"
+  },
+  "engines": {
+    "node": ">=14",
+    "npm": ">=7"
   },
   "keywords": [
     "libs-inspector",

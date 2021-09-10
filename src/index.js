@@ -1,37 +1,9 @@
-const axios = require('axios');
 const path = require('path');
 const fs = require('fs');
 const fse = require('fs-extra');
 
-async function getPackageInfoInGlobalRegistry(packageName) {
-    let response;
-
-    const formattedPackageName = packageName.replace(/\//g, '%2F');
-
-    try {
-        response = await axios.get(`https://api.npms.io/v2/package/${formattedPackageName}`);
-    } catch (err) {
-        console.log(`Could not find this repo "${packageName}" in global npm registry`);
-        console.log('\x1b[31m%s\x1b[0m', `${err?.response.status} - ${err?.response.statusText}`);
-
-        return null;
-    }
-
-    const starsCount = response.data.collected?.github?.starsCount;
-    const {score} = response.data;
-    const {
-        name,
-        description,
-        version,
-        repository,
-        author,
-        dependencies,
-        devDependencies,
-        links
-    } = response.data.collected.metadata;
-
-    return {name, description, latestVersion: version, author, repository, starsCount, links, dependencies, devDependencies, score};
-}
+const getInfoFromNpmsForDependencies = require('./npms-api').getInfoFromNpmsForDependencies;
+const checkFileExists = require('./file-helper');
 
 function getPackageJsonInfoFromUserRepo() {
     const pathOfCurrentModule = process.argv[1];
@@ -49,38 +21,29 @@ async function generateReportData(dependencies, devDependencies) {
 
     if (dependencies) {
         console.log(`Gathering data from npmjs registry for your ${Object.keys(dependencies).length} dependencies...`);
-        fullReportData.dependencies = await getInfoFromNpmsPerDependency(dependencies);
+        fullReportData.dependencies = await getInfoFromNpmsForDependencies(dependencies);
     }
 
     if (devDependencies) {
         console.log(`Gathering data from npmjs registry for your ${Object.keys(devDependencies).length} devDependencies...`);
-        fullReportData.devDependencies = await getInfoFromNpmsPerDependency(devDependencies);
+        fullReportData.devDependencies = await getInfoFromNpmsForDependencies(devDependencies);
     }
 
     return fullReportData;
 }
 
-async function getInfoFromNpmsPerDependency(dependencies) {
-    let collectedDependencies = {};
-
-    for (const [dependency, version] of Object.entries(dependencies)) {
-        const res = await getPackageInfoInGlobalRegistry(dependency);
-        collectedDependencies[dependency] = {usedVersion: version, ...res};
-    }
-    return collectedDependencies;
-}
-
 function writeDependenciesDataIntoLibsLocalJsonFile(data, projectName) {
     const pathOfCurrentModuleBinInUserRepo = process.argv[1];
-    const pathToLocalLibsDataJson = path.join(pathOfCurrentModuleBinInUserRepo, '../../libs-inspector/libs-inspector-report/data.json');
+    const pathToLocalLibsDataJson = path.join(pathOfCurrentModuleBinInUserRepo, '../../libs-inspector/libs-inspector-report/data.js');
 
     if (checkFileExists(pathToLocalLibsDataJson)) {
-        console.log('Removing the previous version of data.json');
+        console.log('Removing the previous version of data.js');
         fs.unlinkSync(pathToLocalLibsDataJson);
     }
 
-    console.log('Creating data.json with all dependencies info');
-    fs.writeFileSync(pathToLocalLibsDataJson, JSON.stringify({projectName, ...data}), 'utf8');
+    console.log('Creating data.js with all dependencies info');
+    console.log(JSON.stringify({projectName, ...data}));
+    fs.writeFileSync(pathToLocalLibsDataJson, `var data = ${JSON.stringify({projectName, ...data})}`, 'utf8');
 }
 
 function copyReportFolderToUserRepo() {
@@ -100,19 +63,6 @@ function copyReportFolderToUserRepo() {
     console.log('Copying generated report to user repo');
     // { overwrite: true } - to replace existing folder or file with same name
     fse.copySync(pathToLocallyGeneratedReportInLib, pathToUsersRepo, {overwrite: true});
-}
-
-function checkFileExists(filePath) {
-    try {
-        if (fs.existsSync(filePath)) {
-            return true;
-        }
-    } catch (err) {
-        console.log('Error occurred');
-        console.log(err);
-    }
-
-    return false;
 }
 
 module.exports = {

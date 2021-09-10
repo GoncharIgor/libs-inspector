@@ -8,7 +8,7 @@ const {
 } = require('./index');
 
 (async () => {
-    const [deps, devDeps, projectName] = await getPackageJsonInfoFromUserRepo();
+    const [deps, devDeps, projectName] = getPackageJsonInfoFromUserRepo();
     const fullReportData = await generateReportData(deps, devDeps);
     writeDependenciesDataIntoLibsLocalJsonFile(fullReportData, projectName);
     copyReportFolderToUserRepo();

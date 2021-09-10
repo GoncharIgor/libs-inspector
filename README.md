@@ -1,6 +1,6 @@
 # libs-inspector
 
-[![Current Version](https://img.shields.io/github/package-json/v/GoncharIgor/libs-inspector?color=%2397c40f&logo=github)](https://github.com/GoncharIgor/libs-inspector)
+[![Current Version](https://img.shields.io/github/package-json/v/GoncharIgor/libs-inspector?color=%2397c40f)](https://github.com/GoncharIgor/libs-inspector)
 [![GitHub Stars](https://img.shields.io/github/stars/GoncharIgor/libs-inspector.svg?logo=github)](https://github.com/GoncharIgor/libs-inspector/stargazers)
 ![MIT license](https://img.shields.io/github/license/GoncharIgor/libs-inspector)
 
@@ -50,6 +50,7 @@ Each time you setup a project and install dependencies, the report will be autom
 
 
 ## Next features to come
+- duplicates check
 - configuration file for excluding specific libs
 - vulnerabilities check
 

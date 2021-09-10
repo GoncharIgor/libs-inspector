@@ -1,4 +1,4 @@
-{
+var data = {
   "projectName": "your-awesome-project",
   "dependencies": {
     "eslint": {
