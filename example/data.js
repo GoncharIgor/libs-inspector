@@ -147,114 +147,6 @@ var data = {
         }
       }
     },
-    "eslint-plugin-jsx-a11y": {
-      "usedVersion": "^6.4.1",
-      "name": "eslint-plugin-jsx-a11y",
-      "description": "Static AST checker for accessibility rules on JSX elements.",
-      "latestVersion": "6.4.1",
-      "author": {
-        "name": "Ethan Cohen"
-      },
-      "repository": {
-        "type": "git",
-        "url": "git+https://github.com/evcohen/eslint-plugin-jsx-a11y.git"
-      },
-      "starsCount": 2464,
-      "links": {
-        "npm": "https://www.npmjs.com/package/eslint-plugin-jsx-a11y",
-        "homepage": "https://github.com/evcohen/eslint-plugin-jsx-a11y#readme",
-        "repository": "https://github.com/evcohen/eslint-plugin-jsx-a11y",
-        "bugs": "https://github.com/evcohen/eslint-plugin-jsx-a11y/issues"
-      },
-      "dependencies": {
-        "@babel/runtime": "^7.11.2",
-        "aria-query": "^4.2.2",
-        "array-includes": "^3.1.1",
-        "ast-types-flow": "^0.0.7",
-        "axe-core": "^4.0.2",
-        "axobject-query": "^2.2.0",
-        "damerau-levenshtein": "^1.0.6",
-        "emoji-regex": "^9.0.0",
-        "has": "^1.0.3",
-        "jsx-ast-utils": "^3.1.0",
-        "language-tags": "^1.0.5"
-      },
-      "devDependencies": {
-        "@babel/cli": "^7.11.6",
-        "@babel/core": "^7.11.6",
-        "@babel/plugin-transform-flow-strip-types": "^7.10.4",
-        "babel-eslint": "^10.1.0",
-        "babel-jest": "^24.9.0",
-        "babel-preset-airbnb": "^5.0.0",
-        "coveralls": "^3.1.0",
-        "eslint": "^3 || ^4 || ^5 || ^6 || ^7",
-        "eslint-config-airbnb-base": "^14.2.0",
-        "eslint-plugin-flowtype": "^5.2.0",
-        "eslint-plugin-import": "^2.22.1",
-        "estraverse": "^5.2.0",
-        "expect": "^24.9.0",
-        "flow-bin": "^0.113.0",
-        "in-publish": "^2.0.1",
-        "jest": "^24.9.0",
-        "jscodeshift": "^0.7.0",
-        "minimist": "^1.2.5",
-        "object.assign": "^4.1.1",
-        "rimraf": "^3.0.2",
-        "safe-publish-latest": "^1.1.4",
-        "to-ast": "^1.0.0"
-      },
-      "score": {
-        "final": 0.773757602476893,
-        "detail": {
-          "quality": 0.9993255492678991,
-          "popularity": 0.703806137240305,
-          "maintenance": 0.6503651133211901
-        }
-      }
-    },
-    "eslint-plugin-prettier": {
-      "usedVersion": "^3.4.0",
-      "name": "eslint-plugin-prettier",
-      "description": "Runs prettier as an eslint rule",
-      "latestVersion": "3.4.0",
-      "author": {
-        "name": "Teddy Katz"
-      },
-      "repository": {
-        "type": "git",
-        "url": "git+https://github.com/prettier/eslint-plugin-prettier.git"
-      },
-      "starsCount": 2043,
-      "links": {
-        "npm": "https://www.npmjs.com/package/eslint-plugin-prettier",
-        "homepage": "https://github.com/prettier/eslint-plugin-prettier#readme",
-        "repository": "https://github.com/prettier/eslint-plugin-prettier",
-        "bugs": "https://github.com/prettier/eslint-plugin-prettier/issues"
-      },
-      "dependencies": {
-        "prettier-linter-helpers": "^1.0.0"
-      },
-      "devDependencies": {
-        "@not-an-aardvark/node-release-script": "^0.1.0",
-        "eslint": "^7.0.0",
-        "eslint-config-not-an-aardvark": "^2.1.0",
-        "eslint-config-prettier": "^6.0.0",
-        "eslint-plugin-eslint-plugin": "^2.0.0",
-        "eslint-plugin-node": "^8.0.0",
-        "eslint-plugin-self": "^1.1.0",
-        "mocha": "^6.0.0",
-        "prettier": "^1.15.3",
-        "vue-eslint-parser": "^6.0.0"
-      },
-      "score": {
-        "final": 0.8436407601536737,
-        "detail": {
-          "quality": 0.8448893104859356,
-          "popularity": 0.6928002610726958,
-          "maintenance": 0.9934110732355701
-        }
-      }
-    },
     "eslint-plugin-react": {
       "usedVersion": "^7.24.0",
       "name": "eslint-plugin-react",
@@ -347,6 +239,36 @@ var data = {
           "quality": 0.8595387779640851,
           "popularity": 0.8337977146731859,
           "maintenance": 0.9679866915047755
+        }
+      }
+    },
+    "jest": {
+      "usedVersion": "^27.0.6",
+      "name": "jest",
+      "description": "Delightful JavaScript Testing.",
+      "latestVersion": "27.0.6",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/facebook/jest.git"
+      },
+      "starsCount": 35822,
+      "links": {
+        "npm": "https://www.npmjs.com/package/jest",
+        "homepage": "https://jestjs.io/",
+        "repository": "https://github.com/facebook/jest",
+        "bugs": "https://github.com/facebook/jest/issues"
+      },
+      "dependencies": {
+        "@jest/core": "^27.0.6",
+        "import-local": "^3.0.2",
+        "jest-cli": "^27.0.6"
+      },
+      "score": {
+        "final": 0.8161903033094634,
+        "detail": {
+          "quality": 0.9079864515504037,
+          "popularity": 0.8717492165991447,
+          "maintenance": 0.6819489772418333
         }
       }
     },
@@ -976,5 +898,6 @@ var data = {
         }
       }
     }
-  }
+  },
+  "duplicates": ["jest"]
 }

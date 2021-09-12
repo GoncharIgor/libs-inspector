@@ -80,9 +80,18 @@ table tr:not(.table-header-row) {
     line-height: 26px;
 }
 
-/*table tr.table-danger {
+table tr .duplicate-icon {
+    cursor: pointer;
+}
+
+table tr.duplicated-package-row {
+    background-color: #f8d7da;
+}
+
+/* table tr.duplicated-package-row {
+    background-color: #fbca7073;
     background-color: #f8d7da94;
-}*/
+} */
 
 /* Align header */
 

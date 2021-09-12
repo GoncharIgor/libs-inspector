@@ -50,9 +50,8 @@ Each time you setup a project and install dependencies, the report will be autom
 
 
 ## Next features to come
-- duplicates check
-- configuration file for excluding specific libs
 - vulnerabilities check
+- configuration file for excluding specific libs
 
 
 ## License

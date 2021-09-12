@@ -1,11 +1,6 @@
 const semverRegExp = /^([\^~])?(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$/;
 
 window.addEventListener("DOMContentLoaded", async () => {
-    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    const tooltipList = tooltipTriggerList.map((tooltipTriggerEl) => {
-        return new bootstrap.Tooltip(tooltipTriggerEl)
-    })
-
     // dependencies table elements
     const depTable = document.getElementById('dependencies-table');
     const dependenciesCaption = document.getElementById('dependencies-caption');
@@ -60,13 +55,19 @@ window.addEventListener("DOMContentLoaded", async () => {
     // fill dependencies table
     dependenciesList.forEach((dependency, index) => {
         [dependencyName, dependencyData] = dependency;
-        insertTableRow(depTable, dependencyName, dependencyData, index);
+        insertTableRow(depTable, dependencyName, dependencyData, index, dataFile.duplicates);
     })
 
     // fill devDependencies table
     devDependenciesList.forEach((devDependency, index) => {
         [devDependencyName, devDependencyData] = devDependency;
-        insertTableRow(devDepTable, devDependencyName, devDependencyData, index);
+        insertTableRow(devDepTable, devDependencyName, devDependencyData, index, dataFile.duplicates);
+    })
+
+    // initializing all the Bootstrap tooltips
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    const tooltipList = tooltipTriggerList.map((tooltipTriggerEl) => {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
     })
 });
 
@@ -78,7 +79,7 @@ function rotateChevron(tableChevron, isRotationApplied) {
     }
 }
 
-function insertTableRow(table, dependencyName, dependencyData, index) {
+function insertTableRow(table, dependencyName, dependencyData, index, duplicates) {
     let row;
 
     if (index === 0) {
@@ -95,7 +96,7 @@ function insertTableRow(table, dependencyName, dependencyData, index) {
     cell2.innerHTML = dependencyName;
 
     if (!dependencyData.description) {
-        row.classList.add('table-warning');
+        row.classList.add('table-danger');
 
         cell3.setAttribute('colspan', '7')
         cell3.innerHTML = '<i>Could not get information for this dependency from npm registry</i>';
@@ -107,8 +108,8 @@ function insertTableRow(table, dependencyName, dependencyData, index) {
         const cell8 = row.insertCell(7);
         const cell9 = row.insertCell(8);
 
-        cell4.classList.add('d-none', 'd-lg-table-cell');
-        cell5.classList.add('d-none', 'd-lg-table-cell');
+        cell4.classList.add('d-none', 'd-md-table-cell');
+        cell5.classList.add('d-none', 'd-md-table-cell');
         cell6.classList.add('d-none', 'd-lg-table-cell');
         cell7.classList.add('d-none', 'd-lg-table-cell');
 
@@ -126,6 +127,11 @@ function insertTableRow(table, dependencyName, dependencyData, index) {
         cell7.innerHTML = getDependenciesAmount(dependencyData.devDependencies);
         cell8.innerHTML = `<a href="${dependencyData.links.npm}" target="_blank"><i class="bi bi-box" style="color: cornflowerblue; cursor: pointer"></i></a>`;
         cell9.innerHTML = `<a href="${dependencyData.links.repository}" target="_blank"><i class="bi bi-github" style="color: cornflowerblue; cursor: pointer"></i></a>`;
+    }
+
+    if (duplicates.includes(dependencyName)) {
+        row.classList.add('duplicated-package-row')
+        cell2.innerHTML = `${dependencyName} <span class="duplicate-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Duplicated dependency">❗</span>`
     }
 }
 

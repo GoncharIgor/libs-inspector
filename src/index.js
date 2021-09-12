@@ -4,6 +4,7 @@ const fse = require('fs-extra');
 
 const getInfoFromNpmsForDependencies = require('./npms-api').getInfoFromNpmsForDependencies;
 const checkFileExists = require('./file-helper');
+const getDuplicatesWithinTwoArrays = require('./array-helper');
 
 function getPackageJsonInfoFromUserRepo() {
     const pathOfCurrentModule = process.argv[1];
@@ -28,6 +29,8 @@ async function generateReportData(dependencies, devDependencies) {
         console.log(`Gathering data from npmjs registry for your ${Object.keys(devDependencies).length} devDependencies...`);
         fullReportData.devDependencies = await getInfoFromNpmsForDependencies(devDependencies);
     }
+
+    fullReportData.duplicates = getDuplicatesWithinTwoArrays(Object.keys(dependencies), Object.keys(devDependencies));
 
     return fullReportData;
 }
