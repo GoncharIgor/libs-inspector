@@ -47,6 +47,7 @@ Each time you setup a project and install dependencies, the report will be autom
 - Information for each dependency is being retrieved from: https://npms.io
 - If the dependency info couldn't be got from `npms.io`, then the row is highlighted in red
 - When package version can be updated to new major version, its cell is highlighted
+- If dependency is being duplicated in devDependencies, then the row is highlighted in red
 
 
 ## Next features to come
