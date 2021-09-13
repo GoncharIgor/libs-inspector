@@ -45,7 +45,6 @@ function writeDependenciesDataIntoLibsLocalJsonFile(data, projectName) {
     }
 
     console.log('Creating data.js with all dependencies info');
-    console.log(JSON.stringify({projectName, ...data}));
     fs.writeFileSync(pathToLocalLibsDataJson, `var data = ${JSON.stringify({projectName, ...data})}`, 'utf8');
 }
 
