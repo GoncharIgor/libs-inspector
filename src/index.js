@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const fse = require('fs-extra');
+const {copySync} = require('fs-extra');
 
 const getInfoFromNpmsForDependencies = require('./npms-api').getInfoFromNpmsForDependencies;
 const checkFileExists = require('./file-helper');
@@ -64,7 +64,7 @@ function copyReportFolderToUserRepo() {
 
     console.log('Copying generated report to user repo');
     // { overwrite: true } - to replace existing folder or file with same name
-    fse.copySync(pathToLocallyGeneratedReportInLib, pathToUsersRepo, {overwrite: true});
+    copySync(pathToLocallyGeneratedReportInLib, pathToUsersRepo, {overwrite: true});
 }
 
 module.exports = {

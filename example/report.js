@@ -1,6 +1,6 @@
 const semverRegExp = /^([\^~])?(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$/;
 
-window.addEventListener("DOMContentLoaded", async () => {
+window.addEventListener("DOMContentLoaded", () => {
     // dependencies table elements
     const depTable = document.getElementById('dependencies-table');
     const dependenciesCaption = document.getElementById('dependencies-caption');
@@ -18,7 +18,8 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     dependenciesCaption.addEventListener('click', (e) => {
         e.stopPropagation();
-        tabHead.style.display = isTableShown ? 'none' : 'block';
+        tabHead.style.display = isTableShown ? 'none' : 'table-row-group';
+        getTableBody(depTable).style.display = isTableShown ? 'none' : 'table-row-group';
         depTable.style.marginBottom = isTableShown ? '0' : '15px';
 
         rotateChevron(dependenciesChevron, isTableShown);
@@ -27,14 +28,15 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     devDependenciesCaption.addEventListener('click', (e) => {
         e.stopPropagation();
-        devTabHead.style.display = isDevTableShown ? 'none' : 'block';
+        devTabHead.style.display = isDevTableShown ? 'none' : 'table-row-group';
+        getTableBody(devDepTable).style.display = isDevTableShown ? 'none' : 'table-row-group';
         devDepTable.style.marginBottom = isDevTableShown ? '0' : '15px';
 
         rotateChevron(devDependenciesChevron, isDevTableShown);
         isDevTableShown = !isDevTableShown;
     })
 
-    // data global var is loaded in .html before
+    // "data" global var is loaded previously in .html <scripts> section
     const dataFile = window.data;
 
     // set Project title
@@ -80,13 +82,15 @@ function rotateChevron(tableChevron, isRotationApplied) {
 }
 
 function insertTableRow(table, dependencyName, dependencyData, index, duplicates) {
+    const tableBody = getTableBody(table);
     let row;
 
     if (index === 0) {
-        row = table.insertRow(0);
+        row = tableBody.insertRow(0);
     }
 
-    row = table.insertRow(-1);
+    // append new row at the end of the table
+    row = tableBody.insertRow(-1);
 
     const cell1 = row.insertCell(0);
     const cell2 = row.insertCell(1);
@@ -131,8 +135,12 @@ function insertTableRow(table, dependencyName, dependencyData, index, duplicates
 
     if (duplicates.includes(dependencyName)) {
         row.classList.add('duplicated-package-row')
-        cell2.innerHTML = `${dependencyName} <span class="duplicate-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Duplicated dependency">❗</span>`
+        cell2.innerHTML = `${dependencyName} <span class="duplicate-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Duplicated lib in dependencies and devDependencies tables">❗</span>`
     }
+}
+
+function getTableBody(table) {
+    return table.getElementsByTagName('tbody')[0];
 }
 
 function createEmptyStateForTable(table, emptyStateText) {

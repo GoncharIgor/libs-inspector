@@ -88,6 +88,10 @@ table tr.duplicated-package-row {
     background-color: #f8d7da;
 }
 
+.tooltip-inner {
+    max-width: 400px;
+}
+
 /* table tr.duplicated-package-row {
     background-color: #fbca7073;
     background-color: #f8d7da94;
