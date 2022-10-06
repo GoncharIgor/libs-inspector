@@ -22,7 +22,7 @@ npm install --save-dev libs-inspector
 ## Usage
 
 1. open your project's root folder
-2. run in the terminal: `libs-inspector`
+2. run in the terminal: `npx libs-inspector`
 3. a new folder will be generated in project's root: `libs-inspector-report`
 4. open it's `index.html`
 
