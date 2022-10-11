@@ -27,19 +27,22 @@ npm install --save-dev libs-inspector
 4. open it's `index.html`
 
 **Tips for automated usage:**
-1. add new npm script to your `package.json` file, that will call `libs-inspector` library. E.g:
+1. Add `libs-inspector` package to `devDependencies` in your `package.json` file
+2. Add new npm script to your `package.json` file, that will call `libs-inspector` library. E.g:
 ```javascript
 "scripts": {
    "generate:lib-report": "libs-inspector"
 }
 ```
-2. You can run this script whenever you want in your CI, but better - to add it to `postinstall` script. E.g:
+3. You can run this script whenever you want in your CI with `npm run generate:lib-report` command, but better - to add it to `postinstall` script. E.g:
 ```javascript
 "scripts": {
    "postinstall": "npm run generate:lib-report"
 }
 ```
 Each time you setup a project and install dependencies, the report will be automatically generated
+
+Don't forget to add generated `libs-inspector-report` folder to your `.gitignore` file
 
 ## Details of realisation
 - The report generates 2 tables: dependencies and devDependencies
